@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"go/ast"
-	"go/doc"
 	"go/parser"
 	"go/token"
 )
@@ -64,7 +63,7 @@ func ExtractGoComments(base, path string, commentMap map[string]string) error {
 							txt = gtxt
 							gtxt = ""
 						}
-						txt = doc.Synopsis(txt)
+						//txt = doc.Synopsis(txt)
 						commentMap[fmt.Sprintf("%s.%s", pkg, typ)] = strings.TrimSpace(txt)
 					}
 				case *ast.Field:
